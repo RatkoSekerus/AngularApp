@@ -1,0 +1,72 @@
+<div *ngIf="message">{{message}}</div>
+<div class ="unos">
+  <h2>Unesite novi raspored</h2>
+
+
+<div class="form-group">
+  <form (ngSubmit)="createRaspored(rasporedForm)" #rasporedForm="ngForm">
+    <div class="raspored-day">
+      <input type="text"
+             placeholder="Raspored Day"
+             required
+             name="rasporedDay"
+             #rasporedDay="ngModel"
+             [(ngModel)]="raspored.day">
+    </div>
+    <div *ngIf="rasporedDay.errors && rasporedDay.errors.required">Dan je obavezan</div>
+    <div class="raspored-code">
+      <input type="text"
+             placeholder="Raspored Code"
+             required
+             
+             name="rasporedCode"
+             #rasporedCode="ngModel"
+             [(ngModel)]="raspored.code">
+    </div>
+    <div *ngIf="rasporedCode.invalid">
+      <div *ngIf="rasporedCode.errors.required">Raspored kod mora biti razlicit od ostalih kodova</div>
+      <div *ngIf="rasporedCode.errors.minlength">Raspored Code must be atleast of length 2</div>
+    </div>
+    <div class="raspored-beginTime">
+      <input type="text"
+             placeholder="Raspored beginTime"
+             name="rasporedBeginTime"
+             required
+             #rasporedBeginTime="ngModel"
+             [ngModel]="raspored.beginTime"
+             (ngModelChange)="setRasporedBeginTime($event)">
+    </div>
+    <div >
+      <div >Pocetak treninga</div>
+    </div>
+    <div class="raspored-endTime">
+        <input type="text"
+               placeholder="Raspored endTime"
+               name="rasporedEndTime"
+               required
+               #rasporedEndTime="ngModel"
+               [ngModel]="raspored.endTime"
+               (ngModelChange)="setRasporedEndTime($event)">
+      </div>
+      <div >
+        <div >Kraj treninga</div>
+      </div>
+      <div class="raspored-description">
+        <input type="text"
+               placeholder="Opis treninga"
+               required
+               
+               name="rasporedDescription"
+               #rasporedDescription="ngModel"
+               [(ngModel)]="raspored.description">
+      </div>
+      <div *ngIf=" rasporedDescription.invalid">
+        <div *ngIf="rasporedDescription.errors.required">Opis treninga</div>
+      </div>
+   
+    <button type="submit" class="btn btn-success">Create</button>
+  </form>
+</div>
+</div>
+
+

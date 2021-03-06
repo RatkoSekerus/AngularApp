@@ -1,0 +1,11 @@
+
+<app-raspored-item *ngFor="let raspored of rasporeds$ | async"
+                [raspored]="raspored" >
+</app-raspored-item>
+<div class="dugme">
+<button type="button"
+(click)="fetchRasporeds()" *ngIf="trener()" class="btn btn-success">
+azuriraj raspored
+</button>
+</div>
+

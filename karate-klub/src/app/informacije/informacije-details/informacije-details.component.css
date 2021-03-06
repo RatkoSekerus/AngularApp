@@ -1,0 +1,18 @@
+.informacija-container {
+    margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  text-align: center;
+}
+.description {
+    font-size: 350%;
+}
+.tekst {
+    font-size: 130%;
+    color: grey;
+}
+.car {
+    background-color: khaki;
+    text-align: center;
+}

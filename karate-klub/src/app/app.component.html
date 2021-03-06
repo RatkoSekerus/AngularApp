@@ -1,0 +1,64 @@
+<div class="all">
+  <div class="jumbotron jumbotron-fluid"> 
+    <div>
+      <span ><img src ="assets/foto2.jpeg" class = "left"></span>
+      
+      <span ><img src ="assets/foto1.png" class = "right"></span> 
+    </div>
+    
+  <span ><h1 class="titleCSS">{{title}}</h1></span>
+     
+
+  <div class="container" >
+    <div class="center">
+  <button (click) ="onPocni()" *ngIf="!spremno" class="button button2" >Start</button>
+</div>
+</div>
+</div>
+
+  <div *ngIf="spremno" class="centar">
+    <div class="list-group">
+    <div class="list-group-item" >
+    <span>
+      <a routerLink="/login" routerLinkActive="active">
+      Logovanje kao trener ili ucenik
+      </a>
+      </span>
+    </div>
+    
+    <div *ngIf ="ucenik()" class="list-group-item">
+      <span>
+      <a routerLink="/rasporeds/list" routerLinkActive="active">
+      Prikaz rasporeda treninga
+    </a>
+      </span>
+    </div>
+    <div *ngIf ="trener()" class="list-group-item">
+      <span>
+      <a routerLink="/rasporeds/list" routerLinkActive="active">
+      Azuriranje rasporeda treninga
+    </a>
+      </span>
+    </div>
+    <div *ngIf = "trener()" class="list-group-item">
+      <span>
+      <a routerLink="/rasporeds/create" routerLinkActive="active">
+      Dodavanje rasporeda
+      </a>
+      </span>
+    </div>
+    <div class="list-group-item">
+      <span>
+        <a routerLink="/gost" routerLinkActive="active">
+        Logovanje kao gost
+        </a>
+        </span>
+      </div>
+
+  </div>
+</div>
+<div>
+</div>
+</div>
+  <router-outlet></router-outlet>
+  <img src = "assets/naslovna.png" class="slika" *ngIf="!spremno">

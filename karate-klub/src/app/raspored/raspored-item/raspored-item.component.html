@@ -1,0 +1,24 @@
+<div class="raspored-container"  >
+    <div class="day">{{raspored.day + ' (' + raspored.code + ')'}}</div>
+    <div class="description">{{raspored.description}}</div>
+    <div class="time">Pocetak treninga : {{raspored.beginTime}} | Kraj treninga : {{raspored.endTime}}</div>
+    
+      <form (ngSubmit)="changeRaspored()" #rasporedForm="ngForm" *ngIf="trener()">
+        <span>Promena pocetka treninga:
+      <input type="text"
+      placeholder="Unos novog termina"
+      name="rasporedBeginTime"
+      #rasporedBeginTime="ngModel"
+      [(ngModel)]="beginTime">
+    </span>
+    <span>Promena zavrsetka treninga:
+      <input type="text"
+      placeholder="Unos novog termina"
+      name="rasporedEndTime"
+      #rasporedEndTime="ngModel"
+      [(ngModel)]="endTime">
+    </span>
+    <button type="submit" class="btn btn-primary">Promeni</button>
+  </form>
+    
+  </div>
